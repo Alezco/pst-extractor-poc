@@ -1,11 +1,10 @@
 const resolve = require('path').resolve;
 const {PSTFile} = require('pst-extractor');
 const {printPstTree} = require('./print-pst-tree');
+const {printPstAppointments} = require('./print-pst-calendar');
 
-const pstFile = new PSTFile(resolve('./fichier_test.pst'));
-console.log(pstFile.getMessageStore().displayName);
+const pstFile = new PSTFile(resolve('./appointments.pst'));
 printPstTree(pstFile.getRootFolder());
-//const rootFolder = pstFile.getRootFolder();
-//const child = rootFolder.getSubFolders()[1].getNextChild()
 
-//console.log(">>>>>>>>", child);
+/*const appointmentsPstFile = new PSTFile(resolve('./appointments.pst'));
+printPstAppointments(appointmentsPstFile);*/
