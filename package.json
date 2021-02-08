@@ -9,6 +9,7 @@
     "pst-extractor": "^1.7.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "nexe --build --verbose index.js"
   }
 }
