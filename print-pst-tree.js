@@ -1,5 +1,3 @@
-const {PSTAttachment} = require("pst-extractor");
-
 const fs = require("fs")
 
 let depth = -1;
@@ -34,7 +32,9 @@ const printPstTree = (folder) => {
     depth--;
 }
 
-const printData = email => getAttachments(email);
+const printData = email => {
+    //getEmailTree(email)
+};
 
 const getMetadata = email => {
     console.log(email.subject, email.clientSubmitTime, email.messageSize)
@@ -62,7 +62,6 @@ const getAttachments = email => {
         [...Array(numberOfAttachments).keys()].map((index) => {
             const currentAttachment = email.getAttachment(index)
             if (!currentAttachment.longFilename) {
-                console.log(">>>>>>>>>", currentAttachment.attachMethod, currentAttachment.mimeTag)
                 console.log(currentAttachment.embeddedPSTMessage)
             }
             try {
@@ -86,7 +85,6 @@ const getAttachments = email => {
         });
     }
 }
-
 
 const getDepth = (depth) => {
     let sdepth = '';
